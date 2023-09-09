@@ -1,0 +1,1566 @@
+html:
+<nav class="navbar">
+    <h1 class="nav-brand">Text ellipsis</h1>
+</nav>
+
+<main class="container">
+    <div>
+        <label class="label" for="component-name">Enter text<span class="input-required">*</span></label>
+        <input type="text" class="input" placeholder="Enter your text here" id="input" autocomplete="off">
+    </div>
+
+    <p id="output"></p>
+</main>
+
+
+css:
+:root {
+  --white: #fff;
+  --black: #000;
+
+  /* Primary colors*/
+  --primary-1: #2b8379;
+  --primary-2: #19a596;
+  --primary-3: #7fd1c7;
+  --primary-4: #7fd1c7;
+  --primary-5: #d0f3ef;
+
+  /* Neutral colors */
+  --neutral-1: #2c2c2c;
+  --neutral-2: #434343;
+  --neutral-3: #94868b;
+  --neutral-4: #d9cfd3;
+  --neutral-5: #f2ecee;
+
+  /* Accent-blue colors */
+  --accent-1: #970e3d;
+  --accent-2: #c43464;
+  --accent-3: #de7699;
+  --accent-4: #e6c3ce;
+  --accent-5: #fff2f7;
+}
+
+body {
+  background-color: var(--neutral-5);
+  margin: 0;
+}
+
+h1 {
+  font-size: 36px;
+  font-weight: 600;
+}
+
+h2 {
+  font-size: 28px;
+  font-weight: 500;
+}
+
+h3 {
+  font-size: 24px;
+  font-weight: normal;
+}
+
+p {
+  line-height: 30px;
+  font-size: 18px;
+}
+
+a {
+  color: var(--primary-2);
+  font-weight: bold;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+.rounded {
+  border-radius: 30px;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+
+/* FORMS */
+.form h2 {
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.form h3 {
+  font-size: 20px;
+  font-weight: 300;
+  margin-bottom: 15px;
+}
+
+.form-section {
+  border-bottom: var(--neutral-4) solid 1px;
+  margin-bottom: 20px;
+}
+
+.input-required {
+  color: var(--primary-2);
+  text-decoration: none;
+  font-weight: bold;
+  padding: 0 1px;
+}
+
+.label {
+  display: block;
+  font-weight: 500;
+}
+
+.input {
+  font-size: 16px;
+  margin-top: 1em;
+  margin-bottom: 1.5em;
+  padding: 0.75em 0.5em;
+  min-width: 200px;
+  border: none;
+  border-left: 7px solid var(--neutral-4);
+  transition: border-left-color 160ms;
+  background-color: white;
+  width: 100%;
+}
+
+::placeholder {
+  color: var(--neutral-3);
+}
+
+input:not(.btn):focus {
+  outline: none;
+  border-left: 7px solid var(--primary-1);
+}
+
+/* NAVBAR */
+.navbar {
+  background-color: white;
+  padding: 10px;
+  box-shadow: 0px 3px 7px 1px rgba(0, 0, 0, 0.07),
+    0px -3px 7px 1px rgba(0, 0, 0, 0.07);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.nav-brand {
+  font-weight: 450;
+  text-decoration: none;
+  padding-left: 20px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  color: initial;
+}
+
+js:
+
+import {getDescription} from "./helpers.js";
+
+const input = document.querySelector("#input");
+const output = document.querySelector("#output");
+
+input.addEventListener("input", (event) => {
+    output.textContent = getDescription(event.currentTarget.value);
+});
+
+
+export function getDescription(text) {
+    console.log(text.substring(0,10)); // write something in the BROWSER and see it in the console
+}
+-----------------------------------------------------------------------------------------------------------------
+html:
+<nav class="navbar">
+    <h1 class="nav-brand">Name variations</h1>
+</nav>
+
+<main class="container">
+    <div>
+        <label class="label" for="component-name">Enter your name</label>
+        <input type="text" class="input" placeholder="Your name" id="your-name" autocomplete="off">
+    </div>
+
+    <table class="table" border="1">
+        <thead>
+            <tr>
+                <th width="200px">Variation</th>
+                <th>Result</th>
+            </tr>
+        </thead>
+        <tbody>
+                <tr>
+                    <td>Number of characters</td>
+                    <td id="answer1"></td>
+                </tr>
+                <tr>
+                    <td>First character</td>
+                    <td id="answer2"></td>
+                </tr>
+                <tr>
+                    <td>Last character</td>
+                    <td id="answer3"></td>
+                </tr>
+                <tr>
+                    <td>Lower case</td>
+                    <td id="answer4"></td>
+                </tr>
+                <tr>
+                    <td>Upper case</td>
+                    <td id="answer5"></td>
+                </tr>
+                <tr>
+                    <td>Capitalize</td>
+                    <td id="answer6"></td>
+                </tr>
+            </tbody>
+    </table>
+</main>
+
+css:
+:root {
+  --white: #fff;
+  --black: #000;
+
+  /* Primary colors*/
+  --primary-1: #2b8379;
+  --primary-2: #19a596;
+  --primary-3: #7fd1c7;
+  --primary-4: #7fd1c7;
+  --primary-5: #d0f3ef;
+
+  /* Neutral colors */
+  --neutral-1: #2c2c2c;
+  --neutral-2: #434343;
+  --neutral-3: #94868b;
+  --neutral-4: #d9cfd3;
+  --neutral-5: #f2ecee;
+
+  /* Accent-blue colors */
+  --accent-1: #970e3d;
+  --accent-2: #c43464;
+  --accent-3: #de7699;
+  --accent-4: #e6c3ce;
+  --accent-5: #fff2f7;
+}
+
+body {
+  background-color: var(--neutral-5);
+  margin: 0;
+}
+
+h1 {
+  font-size: 36px;
+  font-weight: 600;
+}
+
+h2 {
+  font-size: 28px;
+  font-weight: 500;
+}
+
+h3 {
+  font-size: 24px;
+  font-weight: normal;
+}
+
+p {
+  line-height: 30px;
+  font-size: 18px;
+}
+
+a {
+  color: var(--primary-2);
+  font-weight: bold;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+.rounded {
+  border-radius: 30px;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* BUTTONS */
+.btn {
+  border-radius: 3px;
+  display: inline-block;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 13px 40px;
+  border: 0;
+  transition: background-color 200ms, color 200ms;
+}
+
+.btn-default {
+  color: var(--white);
+  background-color: var(--primary-1);
+}
+
+.btn-default:hover,
+.btn-outline:hover {
+  color: var(--white);
+  background-color: var(--primary-2);
+  text-decoration: none;
+}
+
+.btn-default:active,
+.btn-outline:active {
+  color: var(--primary-1);
+  background-color: var(--primary-4);
+}
+
+.btn-default[disabled],
+.btn-outline[disabled] {
+  color: var(--primary-4);
+  background-color: var(--primary-5);
+  cursor: default;
+}
+
+.btn-accent {
+  color: var(--white);
+  background-color: var(--accent-1);
+}
+
+.btn-accent:hover {
+  color: var(--white);
+  background-color: var(--accent-2);
+  text-decoration: none;
+}
+
+.btn-accent:active {
+  color: var(--accent-1);
+  background-color: var(--accent-4);
+}
+
+.btn-accent[disabled] {
+  color: var(--accent-4);
+  background-color: var(--accent-5);
+  cursor: default;
+}
+
+.btn-outline {
+  color: var(--primary-1);
+  background-color: var(--primary-4);
+  border: var(--primary-1) 2px solid;
+  box-shadow: 1px 1px 7px #c4c4c4;
+  padding: 8px 25px;
+  border-radius: 10px;
+}
+
+/* FORMS */
+.form h2 {
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.form h3 {
+  font-size: 20px;
+  font-weight: 300;
+  margin-bottom: 15px;
+}
+
+.form-section {
+  border-bottom: var(--neutral-4) solid 1px;
+  margin-bottom: 20px;
+}
+
+.input-required {
+  color: var(--primary-2);
+  text-decoration: none;
+  font-weight: bold;
+  padding: 0 1px;
+}
+
+.label {
+  display: block;
+  font-weight: 500;
+}
+
+.input {
+  font-size: 16px;
+  margin-top: 1em;
+  margin-bottom: 1.5em;
+  padding: 0.75em 0.5em;
+  min-width: 200px;
+  border: none;
+  border-left: 7px solid var(--neutral-4);
+  transition: border-left-color 160ms;
+  background-color: white;
+}
+
+::placeholder {
+  color: var(--neutral-3);
+}
+
+input:not(.btn):focus {
+  outline: none;
+  border-left: 7px solid var(--primary-1);
+}
+
+/* NAVBAR */
+.navbar {
+  background-color: white;
+  padding: 10px;
+  box-shadow: 0px 3px 7px 1px rgba(0, 0, 0, 0.07),
+    0px -3px 7px 1px rgba(0, 0, 0, 0.07);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.nav-brand {
+  font-weight: 450;
+  text-decoration: none;
+  padding-left: 20px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  color: initial;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table thead {
+  background-color: var(--primary-1);
+  color: white;
+  border: 1px solid white;
+}
+
+.table th {
+  padding: 15px;
+}
+.table td {
+  padding: 10px;
+}
+
+.table tbody {
+  font-size: 18px;
+  border: 1px solid white;
+}
+.table tbody tr:nth-child(2n) {
+  background-color: white;
+}
+
+.table tbody tr:nth-child(2n + 1) {
+  background-color: var(--neutral-5);
+}
+js:
+import {getNumberOfChars, getFirstChar, getLastChar, getLower, getUpper, getCapitalized} from "./variations.js";
+
+const answer1 = document.querySelector("#answer1");
+const answer2 = document.querySelector("#answer2");
+const answer3 = document.querySelector("#answer3");
+const answer4 = document.querySelector("#answer4");
+const answer5 = document.querySelector("#answer5");
+const answer6 = document.querySelector("#answer6");
+
+const name = document.querySelector("#your-name");
+
+name.addEventListener("keyup", () => {
+    const value = name.value;
+
+    answer1.textContent = getNumberOfChars(value);
+    answer2.textContent = getFirstChar(value);
+    answer3.textContent = getLastChar(value);
+    answer4.textContent = getLower(value);
+    answer5.textContent = getUpper(value);
+    if (value) {
+        answer6.textContent = getCapitalized(value);
+    } else {
+        answer6.textContent = "";
+    }
+});
+
+/** @param {string} name */
+export function getNumberOfChars(name) {
+    // number of characters in: name
+return name.length
+}
+
+/** @param {string} name */
+export function getFirstChar(name) {
+    // first character of: name
+return name[0]
+}
+
+/** @param {string} name */
+export function getLastChar(name) {
+    // last character of: name
+return name.at(-1)
+}
+
+/** @param {string} name */
+export function getLower(name) {
+    // name all in lower case (example: "ABC" becomes "abc")
+return name.toLowerCase();
+}
+
+/** @param {string} name */
+export function getUpper(name) {
+    // name all in upper case (example: "abc" becomes "ABC")
+return name.toUpperCase();
+}
+
+/** @param {string} name */
+export function getCapitalized(name) {
+    // capitalized version of name (example: "alEX" becomes "Alex")
+     return name[0].toUpperCase() + name.substring(1).toLowerCase();
+}
+-----------------------------------------------------------------------------------------------
+html:
+<nav class="navbar">
+    <h1 class="nav-brand">Text ellipsis</h1>
+</nav>
+
+<main class="container">
+    <div>
+        <label class="label" for="component-name">Enter text<span class="input-required">*</span></label>
+        <input type="text" class="input" placeholder="Enter your text here" id="input" autocomplete="off">
+    </div>
+
+    <p id="output"></p>
+</main>
+
+css:
+:root {
+  --white: #fff;
+  --black: #000;
+
+  /* Primary colors*/
+  --primary-1: #2b8379;
+  --primary-2: #19a596;
+  --primary-3: #7fd1c7;
+  --primary-4: #7fd1c7;
+  --primary-5: #d0f3ef;
+
+  /* Neutral colors */
+  --neutral-1: #2c2c2c;
+  --neutral-2: #434343;
+  --neutral-3: #94868b;
+  --neutral-4: #d9cfd3;
+  --neutral-5: #f2ecee;
+
+  /* Accent-blue colors */
+  --accent-1: #970e3d;
+  --accent-2: #c43464;
+  --accent-3: #de7699;
+  --accent-4: #e6c3ce;
+  --accent-5: #fff2f7;
+}
+
+body {
+  background-color: var(--neutral-5);
+  margin: 0;
+}
+
+h1 {
+  font-size: 36px;
+  font-weight: 600;
+}
+
+h2 {
+  font-size: 28px;
+  font-weight: 500;
+}
+
+h3 {
+  font-size: 24px;
+  font-weight: normal;
+}
+
+p {
+  line-height: 30px;
+  font-size: 18px;
+}
+
+a {
+  color: var(--primary-2);
+  font-weight: bold;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+.rounded {
+  border-radius: 30px;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+
+/* FORMS */
+.form h2 {
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.form h3 {
+  font-size: 20px;
+  font-weight: 300;
+  margin-bottom: 15px;
+}
+
+.form-section {
+  border-bottom: var(--neutral-4) solid 1px;
+  margin-bottom: 20px;
+}
+
+.input-required {
+  color: var(--primary-2);
+  text-decoration: none;
+  font-weight: bold;
+  padding: 0 1px;
+}
+
+.label {
+  display: block;
+  font-weight: 500;
+}
+
+.input {
+  font-size: 16px;
+  margin-top: 1em;
+  margin-bottom: 1.5em;
+  padding: 0.75em 0.5em;
+  min-width: 200px;
+  border: none;
+  border-left: 7px solid var(--neutral-4);
+  transition: border-left-color 160ms;
+  background-color: white;
+  width: 100%;
+}
+
+::placeholder {
+  color: var(--neutral-3);
+}
+
+input:not(.btn):focus {
+  outline: none;
+  border-left: 7px solid var(--primary-1);
+}
+
+/* NAVBAR */
+.navbar {
+  background-color: white;
+  padding: 10px;
+  box-shadow: 0px 3px 7px 1px rgba(0, 0, 0, 0.07),
+    0px -3px 7px 1px rgba(0, 0, 0, 0.07);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.nav-brand {
+  font-weight: 450;
+  text-decoration: none;
+  padding-left: 20px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  color: initial;
+}
+
+js:
+import {getDescription} from "./helpers.js";
+
+const input = document.querySelector("#input");
+const output = document.querySelector("#output");
+
+input.addEventListener("input", (event) => {
+    output.textContent = getDescription(event.currentTarget.value);
+});
+export function getDescription(text) {
+    if (text.length > 10) {
+        return text.substring(0, 10) + "...";
+    }
+    return text;
+}
+
+--------------------------------------------------------------------------
+html:
+<nav class="navbar">
+    <h1 class="nav-brand">Countries</h1>
+</nav>
+
+<main class="container">
+    <form>
+        <label>Choose a country</label>
+        <select id="countries-dropdown"></select>
+    </form>
+</main>
+css:
+:root {
+  --white: #fff;
+  --black: #000;
+
+  /* Primary colors*/
+  --primary-1: #2b8379;
+  --primary-2: #19a596;
+  --primary-3: #7fd1c7;
+  --primary-4: #7fd1c7;
+  --primary-5: #d0f3ef;
+
+  /* Neutral colors */
+  --neutral-1: #2c2c2c;
+  --neutral-2: #434343;
+  --neutral-3: #94868b;
+  --neutral-4: #d9cfd3;
+  --neutral-5: #f2ecee;
+
+  /* Accent-blue colors */
+  --accent-1: #970e3d;
+  --accent-2: #c43464;
+  --accent-3: #de7699;
+  --accent-4: #e6c3ce;
+  --accent-5: #fff2f7;
+}
+
+body {
+  background-color: var(--neutral-5);
+  margin: 0;
+}
+
+h1 {
+  font-size: 36px;
+  font-weight: 600;
+}
+
+h2 {
+  font-size: 28px;
+  font-weight: 500;
+}
+
+h3 {
+  font-size: 24px;
+  font-weight: normal;
+}
+
+p {
+  line-height: 30px;
+  font-size: 18px;
+}
+
+a {
+  color: var(--primary-2);
+  font-weight: bold;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+.rounded {
+  border-radius: 30px;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+
+/* FORMS */
+.form h2 {
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.form h3 {
+  font-size: 20px;
+  font-weight: 300;
+  margin-bottom: 15px;
+}
+
+.form-section {
+  border-bottom: var(--neutral-4) solid 1px;
+  margin-bottom: 20px;
+}
+
+.input-required {
+  color: var(--primary-2);
+  text-decoration: none;
+  font-weight: bold;
+  padding: 0 1px;
+}
+
+.label {
+  display: block;
+  font-weight: 500;
+}
+
+.input {
+  font-size: 16px;
+  margin-top: 1em;
+  margin-bottom: 1.5em;
+  padding: 0.75em 0.5em;
+  min-width: 200px;
+  border: none;
+  border-left: 7px solid var(--neutral-4);
+  transition: border-left-color 160ms;
+  background-color: white;
+  width: 100%;
+}
+
+::placeholder {
+  color: var(--neutral-3);
+}
+
+input:not(.btn):focus {
+  outline: none;
+  border-left: 7px solid var(--primary-1);
+}
+
+/* NAVBAR */
+.navbar {
+  background-color: white;
+  padding: 10px;
+  box-shadow: 0px 3px 7px 1px rgba(0, 0, 0, 0.07),
+    0px -3px 7px 1px rgba(0, 0, 0, 0.07);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.nav-brand {
+  font-weight: 450;
+  text-decoration: none;
+  padding-left: 20px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  color: initial;
+}
+
+select {
+  padding: 10px 15px;
+  border-radius: 8px;
+}
+
+js:
+/**
+ * @param {string[]} countries
+ */
+export function getDropdown(countries) {
+    let html = `<option value="">Please select</option>`;
+    countries.forEach(function(country) {
+        html += `<option value="${country.toLowerCase()}">${country}</option>`;
+    });
+    return html;
+}
+
+-----------------------------------------------------------------------------------------
+<nav class="navbar">
+    <h1 class="nav-brand">Classroom</h1>
+</nav>
+
+<main class="container">
+    <form id="grades-form">
+        <label class="label" for="your-grade">Enter grade</label>
+        <input type="number" min="0" max="20" class="input" required placeholder="Grade (0 and 20)" id="your-grade">
+        <input type="submit" class="btn btn-accent" value="Add" />
+    </form>
+
+    <table border="1" id="stats-table" class="table table-center">
+        <thead>
+            <tr>
+                <th width="33%">Number of tests taken</th>
+                <th width="33%">Sum of grades</th>
+                <th>Average grade</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <table border="1" id="stats-table2" class="table table-center">
+        <thead>
+            <tr>
+                <th width="33%">Passing grades</th>
+                <th width="33%">Failing grades</th>
+                <th>Raised grades</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</main>
+css:
+:root {
+  --white: #fff;
+  --black: #000;
+
+  /* Primary colors*/
+  --primary-1: #2b8379;
+  --primary-2: #19a596;
+  --primary-3: #7fd1c7;
+  --primary-4: #7fd1c7;
+  --primary-5: #d0f3ef;
+
+  /* Neutral colors */
+  --neutral-1: #2c2c2c;
+  --neutral-2: #434343;
+  --neutral-3: #94868b;
+  --neutral-4: #d9cfd3;
+  --neutral-5: #f2ecee;
+
+  /* Accent-blue colors */
+  --accent-1: #970e3d;
+  --accent-2: #c43464;
+  --accent-3: #de7699;
+  --accent-4: #e6c3ce;
+  --accent-5: #fff2f7;
+}
+
+body {
+  background-color: var(--neutral-5);
+  margin: 0;
+}
+
+h1 {
+  font-size: 36px;
+  font-weight: 600;
+}
+
+h2 {
+  font-size: 28px;
+  font-weight: 500;
+}
+
+h3 {
+  font-size: 24px;
+  font-weight: normal;
+}
+
+p {
+  line-height: 30px;
+  font-size: 18px;
+}
+
+a {
+  color: var(--primary-2);
+  font-weight: bold;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+.rounded {
+  border-radius: 30px;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* BUTTONS */
+.btn {
+  border-radius: 3px;
+  display: inline-block;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 13px 40px;
+  border: 0;
+  transition: background-color 200ms, color 200ms;
+}
+
+.btn-default {
+  color: var(--white);
+  background-color: var(--primary-1);
+}
+
+.btn-default:hover,
+.btn-outline:hover {
+  color: var(--white);
+  background-color: var(--primary-2);
+  text-decoration: none;
+}
+
+.btn-default:active,
+.btn-outline:active {
+  color: var(--primary-1);
+  background-color: var(--primary-4);
+}
+
+.btn-default[disabled],
+.btn-outline[disabled] {
+  color: var(--primary-4);
+  background-color: var(--primary-5);
+  cursor: default;
+}
+
+.btn-accent {
+  color: var(--white);
+  background-color: var(--accent-1);
+}
+
+.btn-accent:hover {
+  color: var(--white);
+  background-color: var(--accent-2);
+  text-decoration: none;
+}
+
+.btn-accent:active {
+  color: var(--accent-1);
+  background-color: var(--accent-4);
+}
+
+.btn-accent[disabled] {
+  color: var(--accent-4);
+  background-color: var(--accent-5);
+  cursor: default;
+}
+
+.btn-outline {
+  color: var(--primary-1);
+  background-color: var(--primary-4);
+  border: var(--primary-1) 2px solid;
+  box-shadow: 1px 1px 7px #c4c4c4;
+  padding: 8px 25px;
+  border-radius: 10px;
+}
+
+/* FORMS */
+.form h2 {
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.form h3 {
+  font-size: 20px;
+  font-weight: 300;
+  margin-bottom: 15px;
+}
+
+.form-section {
+  border-bottom: var(--neutral-4) solid 1px;
+  margin-bottom: 20px;
+}
+
+.input-required {
+  color: var(--primary-2);
+  text-decoration: none;
+  font-weight: bold;
+  padding: 0 1px;
+}
+
+.label {
+  display: block;
+  font-weight: 500;
+}
+
+.input {
+  font-size: 16px;
+  padding: 0.75em 0.5em;
+  min-width: 200px;
+  border: none;
+  border-left: 7px solid var(--neutral-4);
+  transition: border-left-color 160ms;
+  background-color: white;
+}
+
+::placeholder {
+  color: var(--neutral-3);
+}
+
+.input:not(.btn):focus {
+  outline: none;
+  border-left: 7px solid var(--primary-1);
+}
+
+/* NAVBAR */
+.navbar {
+  background-color: white;
+  padding: 10px;
+  box-shadow: 0px 3px 7px 1px rgba(0, 0, 0, 0.07),
+    0px -3px 7px 1px rgba(0, 0, 0, 0.07);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.nav-brand {
+  font-weight: 450;
+  text-decoration: none;
+  padding-left: 20px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  color: initial;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table thead {
+  background-color: var(--primary-1);
+  color: white;
+  border: 1px solid white;
+}
+
+.table th {
+  padding: 15px;
+}
+.table td {
+  padding: 10px;
+}
+
+.table tbody {
+  font-size: 18px;
+  border: 1px solid white;
+}
+.table tbody tr:nth-child(2n) {
+  background-color: white;
+}
+
+.table tbody tr:nth-child(2n + 1) {
+  background-color: var(--neutral-5);
+}
+
+.table-center {
+  text-align: center;
+}
+
+#grades-form label {
+  padding-bottom: 10px;
+}
+
+#grades-form input {
+  margin-right: 10px;
+}
+
+#stats-table2 {
+  margin-top: 20px;
+}
+
+#stats-table2 {
+  margin-top: 20px;
+}
+js:
+import {getSumGrades, getPassingGrades, getFailingGrades, getNumberOfGrades, getAverageValue, getRaisedGrades} from "./classroom.js";
+
+const gradesForm = document.querySelector("#grades-form");
+const yourGrade = document.querySelector("#your-grade");
+
+const grades = [12, 19, 10, 4, 15, 9];
+
+const renderStats2Table = grades => {
+    const tbody = document.querySelector("#stats-table2 tbody");
+    tbody.innerHTML = `<tr>
+        <td>${getPassingGrades(grades)}</td>
+        <td>${getFailingGrades(grades)}</td>
+        <td>${getRaisedGrades(grades)}</td>
+    </tr>`;
+}
+
+const renderStatsTable = grades => {
+    const tbody = document.querySelector("#stats-table tbody");
+    tbody.innerHTML = `<tr>
+        <td>${getNumberOfGrades(grades)}</td>
+        <td>${getSumGrades(grades)}</td>
+        <td>${getAverageValue(grades)}</td>
+    </tr>`;
+}
+
+const render = grades => {
+    console.log("Grades: " + grades.join(', '));
+    renderStatsTable(grades);
+    renderStats2Table(grades);
+}
+
+gradesForm.addEventListener("submit", event => {
+    event.preventDefault();
+    const newGrade = Number.parseInt(yourGrade.value, 10);
+    grades.push(newGrade);
+    yourGrade.value = "";
+    render(grades);
+});
+
+render(grades);
+
+
+/** @param {number[]} grades */
+export function getNumberOfGrades(grades) {
+    return grades.length;
+}
+
+/** @param {number[]} grades */
+export function getSumGrades(grades) {
+    let sum = 0;
+    grades.forEach(function(grade) {
+        sum += grade
+    });
+    return sum;
+}
+
+/** @param {number[]} grades */
+export function getAverageValue(grades) {
+    return getSumGrades(grades) / grades.length;
+}
+
+/** @param {number[]} grades */
+export function getPassingGrades(grades) {
+    return grades.filter(function(grade) {
+        return grade >= 10;
+    });
+}
+
+/** @param {number[]} grades */
+export function getFailingGrades(grades) {
+    return grades.filter(function(grade) {
+        return grade < 10;
+    });
+}
+
+/** @param {number[]} grades */
+export function getRaisedGrades(grades) {
+    return grades.map(function(grade) {
+        if (grade + 1 > 20) {
+            return 20;
+        }
+        return grade + 1;
+    });
+}
+--------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Page</title>
+</head>
+<body>
+    <nav id="navbar">
+      <a href="" class="nav-brand">City stats</a>
+      <ul>
+        <li class="nav-item"><a href="about.html">About us</a></li>
+        <li><a href="" class="nav-item btn btn-default">Register</a></li>
+      </ul>
+    </nav>
+
+    <div class="container" id="main">
+        <p>Learn more about our company.</p><br />
+        <select id="city-select">
+            <option value="">Select a city</option>
+            <option value="amsterdam">Amsterdam</option>
+            <option value="berlin">Berlin</option>
+        </select>
+        <div class="card"><div><span id="count"></span> citizens can vote in <span id="city-name"></span></div></div>
+    </div>
+
+    <footer id="footer-wrapper">
+        <a href="about.html" target="_blank">About us</a>
+        <a href="contact.html" target="_blank">Contact us</a>
+    </footer>
+</body>
+</html>
+css:
+:root {
+  --white: #fff;
+  --black: #000;
+
+  --primary-1: #c47e35;
+  --primary-2: #dca15d;
+  --primary-3: #dabb94;
+  --primary-4: #f3dabc;
+  --primary-5: #faf1e5;
+
+  --neutral-1: #2c2c2c;
+  --neutral-2: #434343;
+  --neutral-3: #94868b;
+  --neutral-4: #d9cfd3;
+  --neutral-5: #f2ecee;
+
+  --accent-1: #458179;
+  --accent-2: #4da296;
+  --accent-3: #8dd8cf;
+  --accent-4: #92cfc7;
+  --accent-5: #d7f2ef;
+}
+
+body {
+  margin: 0;
+}
+
+h1 {
+  margin: 50px 0 30px 0;
+  font-weight: 400;
+}
+
+h2 {
+  margin: 30px 0 20px 0;
+  font-weight: 400;
+}
+
+p {
+  font-weight: 300;
+}
+
+a {
+  color: var(--primary-2);
+  text-decoration: underline;
+  line-height: 1.4;
+  padding: 0.25em;
+}
+
+.btn {
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  margin: 10px;
+  padding: 10px 30px;
+  text-decoration: none;
+  max-width: 120px;
+  text-align: center;
+  display: inline-block;
+  transition: background-color 220ms, transform 220ms;
+  border: none;
+}
+
+.btn:active {
+  transform: translate(0.8px, 0.8px);
+}
+
+button.btn {
+  border: 1px solid var(--primary-3);
+}
+
+.btn-default {
+  color: var(--white);
+  background-color: var(--primary-1);
+}
+
+.btn-outline {
+  color: var(--primary-1);
+  background-color: var(--primary-4);
+  border: var(--primary-1) 2px solid;
+  box-shadow: 1px 1px 7px #c4c4c4;
+}
+
+.btn-active {
+  color: var(--primary-1);
+  background-color: var(--primary-4);
+}
+
+.btn-default:hover:not(:disabled) {
+  background-color: var(--primary-2);
+  color: white;
+}
+
+.btn-outline:hover:not(:disabled) {
+  background-color: var(--primary-3);
+}
+
+.btn-default:active {
+  color: var(--primary-1);
+  background-color: var(--primary-3);
+}
+
+.btn:disabled {
+  cursor: initial;
+  opacity: 0.5;
+}
+
+#navbar {
+  width: 100%;
+  padding: 10px 0;
+  box-shadow: 0px 3px 7px 1px rgba(0, 0, 0, 0.07),
+    0px -3px 7px 1px rgba(0, 0, 0, 0.07);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-brand {
+  font-size: 40px;
+  text-decoration: none;
+  padding-left: 20px;
+}
+
+#navbar ul {
+  list-style-type: none;
+  overflow: hidden;
+  padding-right: 20px;
+}
+
+#navbar li {
+  display: inline-block;
+}
+
+.nav-item a {
+  text-decoration: none;
+  font-weight: bold;
+  color: var(--primary-1);
+  display: block;
+  text-align: center;
+  padding: 13px 20px;
+}
+
+.nav-item:hover a {
+  text-decoration: none;
+  color: var(--primary-2);
+}
+
+.form h2 {
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.form h3 {
+  font-size: 20px;
+  font-weight: 300;
+  margin-bottom: 15px;
+}
+
+.border-form {
+  border-bottom: var(--neutral-4) solid 1px;
+  margin-bottom: 20px;
+}
+
+.required {
+  color: var(--primary-2);
+  text-decoration: none;
+  font-weight: bold;
+  padding: 0 1px;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5em;
+  font-weight: 500;
+}
+
+input:not(.btn) {
+  font-size: 16px;
+  margin-bottom: 1.7em;
+  padding: 0.75em 0.5em;
+  background-color: var(--neutral-5);
+  width: 100%;
+  max-width: 250px;
+  border: none;
+  border-left: 7px solid var(--neutral-4);
+}
+
+::placeholder {
+  color: var(--neutral-4);
+}
+
+input:not(.btn):focus {
+  outline: none;
+  border-left: 7px solid var(--accent-1);
+}
+
+.nav-tabs {
+  position: relative;
+  margin: 0 0 40px 0;
+}
+
+.nav-tabs ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  padding-left: 0;
+}
+
+.nav-tabs li {
+  display: inline-block;
+}
+
+.nav-tabs .tab {
+  text-decoration: none;
+  color: var(--black);
+  margin-right: 20px;
+  cursor: pointer;
+  line-height: 1.6;
+  padding: 0.25em;
+}
+.nav-tabs .tab.active {
+  border-bottom: 7px solid var(--accent-1);
+}
+
+.border-tabs {
+  position: absolute;
+  z-index: -1;
+  bottom: 3px;
+  border-bottom: var(--neutral-4) solid 1px;
+  min-width: 400px;
+}
+
+.tab {
+  all: unset;
+}
+
+.tab-content {
+  max-width: 450px;
+  display: none;
+}
+.tab-content.show {
+  display: block;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0px auto;
+  padding: 0 20px;
+}
+
+#footer-wrapper {
+  background-color: var(--neutral-5);
+  padding: 40px 20px;
+  margin-top: 50px;
+}
+
+#footer-wrapper a {
+  text-decoration: none;
+}
+
+.hidden {
+  display: none;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+.card {
+  border-radius: 3px;
+  font-size: 20px;
+  display: grid;
+  place-items: center;
+  padding: 30px;
+  background-color: var(--accent-1);
+  color: white;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+select {
+  padding: 10px 15px;
+  margin-top: 5px;
+  border-radius: 8px;
+}
