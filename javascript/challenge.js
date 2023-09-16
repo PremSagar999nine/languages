@@ -1,3 +1,4 @@
+//clock capable to vote
 // let val = "HelloW"
 // console.log("hellow".length);//6
 // console.log(val.length);//6
@@ -64,3 +65,80 @@
 // // console.log(las);
 // const html = `<ul>${arr.map(user => `<li>${arr.name}</li>`).join(",")}</ul>`;
 // console.log(html);//used in html
+
+// const someobj = {id:1,name:"prem",gender:"M"};
+// console.log(someobj)
+// const somekeys = Object.keys(someobj)
+// console.log(somekeys)
+// somekeys.forEach(function(soem){
+//     console.log(someobj[soem])
+// })
+// somekeys.forEach(key =>{
+//     console.log(someobj[key])
+// })
+// const chg = {...someobj,id:someobj.id+1}
+// console.log(chg);
+// //with object and array
+// const someobj = [{id:1,name:"prem",gender:"M"},{id:2,name:"sagar",gender:"M"},{id:3,name:"kumari",gender:"f"}];
+// console.log(someobj)
+// const somekeys = Object.keys(someobj)    //object.keys
+// console.log(somekeys)
+// somekeys.forEach(key =>{
+//     console.log(someobj[key])
+// })
+// const something = someobj.map(obj=>{
+//     return obj.name
+// })
+// console.log(something)//[ 'prem', 'sagar', 'kumari' ]
+// const objfill = someobj.filter(x=>{
+//     return x.gender==="f";         //filter
+// })
+// console.log(objfill);//[ { id: 3, name: 'kumari', gender: 'f' } ]
+// const objfind = someobj.find(x=>{
+//     return x.id===2;
+// })
+// console.log(objfind);//{ id: 2, name: 'sagar', gender: 'M' }
+// console.log(someobj.some(x=>x.gender==="M"));//true
+// console.log(someobj.every(x=>x.gender==="M"));//flase
+// const somename = someobj.map(obj=>{
+//    if(obj.gender==="M"){
+//     return obj.name;
+// }
+// }).join("")
+// console.log(somename)//premsagar
+
+// function date(){
+//     const date = new Date();
+//     return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
+//     }
+//     console.log(date())//get's date
+
+// class Employee {
+//     constructor(firstName, lastName) {
+//         this.firstName = firstName;
+//         this.lastName = lastName;
+//     }
+
+//     getFullName() {
+//         return `${this.firstName} ${this.lastName}`;
+//     }
+
+//     getInitials() {
+//         return this.firstName[0] + this.lastName[0];
+//     }
+// }
+
+// class Manager extends Employee {
+//     sendPerformanceReview() {
+//         console.log(`Sent performance review for current quarter`);
+//     }   
+// }
+// const manager = new Manager("Sam", "Green");
+// console.log(manager.sendPerformanceReview()); // logs "Sent performance review for current quarter"
+// console.log(manager.getFullName()); // "Sam Green"
+// console.log(manager.getInitials()); // "SG"
+
+// setTimeout(() => {
+//    console.log("time is 2 seconds")  //time out
+// }, 5000);
+

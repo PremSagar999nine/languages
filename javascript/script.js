@@ -15,6 +15,7 @@
 // function sum(a,b){
 //     return a+b;
 // }
+
 // let val = sum(2,3);
 // console.log("it was "+ val);
 
@@ -27,7 +28,7 @@
 
 
 // let language = "something";
-//  console.log(`I am learning ${language}`);
+//  console.log(`I am learning ${language}`);       //interpolation
 
 // let num = "6_6_6";
 // console.log(num);
@@ -150,6 +151,11 @@
 // const val = "hey hii"
 // console.log(val.startsWith("h"));//true
 // console.log(val.endsWith("i"));//true
+    
+// function funs(pera){
+//     return "hey hii"
+// }
+// console.log(funs())
 
 /*
 Math.round(2.6); // 3
@@ -302,6 +308,8 @@ function sumOddNumbers(numbers) {
 // items.length = 0                              //deleting array
 // console.log(items); // []
 
+
+// const grades = [10, 15, 5];
 // const grades = [5, 15, 2];
 // const ades = grades.reduce((x,y)=>{
 //     return x*y;                              //reduce multiplication
@@ -312,7 +320,12 @@ function sumOddNumbers(numbers) {
 // }, 0);
 // console.log(sum);
 // const mus = sum*-1
-// console.log(mus)
+// // console.log(mus)
+// const sum = grades.reduce((total, current) => { 
+//     return total + current
+// }, 0);                                       //reduce addition
+// console.log(sum);
+
 
 // const dimensions = [20, 5]
 // // create variables in normal way
@@ -329,5 +342,310 @@ function sumOddNumbers(numbers) {
 // const point = [...lat,...lng];
 // console.log(point); // [5.234, 1.412];
 
-const user = {id:1,name:"prem",gender:"M"}
-console.log(user.id)
+// const user = {id:1,name:"prem",gender:"M"}
+// console.log(user.name)
+// const change = "gender"
+// console.log(user[change])
+
+// function users(val1,val2){
+//     return val1[val2]
+// };
+// console.log(users({id:1,name:"prem",gender:"M"},"gender"));
+// const something = Object.keys(user)
+// console.log(something)
+
+// const settings = {
+//     theme: "Dark",
+//     version: "2.4.1",
+//     beta: false
+// };
+
+// const keys = Object.keys(settings);
+// console.log(keys); // ["theme", "version", "beta"]
+// keys.forEach(key => {
+//     // log the value of every key dynamically
+//     console.log(settings[key]);
+// });
+
+// const person = {
+//     id: 1,
+//     firstName: "Sam",
+//     gender: "F"
+// };
+// console.log(`Hello ${person}`); // "Hello [object Object]"
+
+// const val = {id:1,name:"prem",gender:"M"}
+// console.log(val);
+// const values = Object.values(val)
+// console.log(values);//[ 1, 'prem', 'M' ]
+// const entries = Object.entries(val);
+// console.log(entries)//[ [ 'id', 1 ], [ 'name', 'prem' ], [ 'gender', 'M' ] ]
+
+// const config = {id: 1,isAdmin: false,theme: { dark: false,accessibility: true}};
+// const id0 = config.id;
+// const isAdmins = config.isAdmin;
+// const themes = config.theme;
+// console.log(id0,"\n",isAdmins,"\n",themes);
+// const {id1, isAdmin2, theme3} = config;
+// const {isAdmin:id, theme} = config;
+// console.log(id);
+
+// const getFullName = user => {
+//     const val = user.info?.name?.toLowerCase();
+//     return val}
+// console.log(getFullName({info: {name: "ALEX"}})); // "alex"             //optional changes
+// console.log(getFullName({info: null})); // undefined
+// console.log(getFullName({})); // undefined
+
+// const someval = funs =>{
+//     return funs ?? "undefined"
+// }
+// console.log(someval("prem"));
+// console.log(someval(null));
+
+// const getPlaceholder = () => {
+//     console.log("getPlaceholder called");
+//     return "N/A";
+// }                                                                        
+// const sayHello = name => {
+//     return `Hello ${name ?? getPlaceholder()}`;
+// }
+// console.log(sayHello("prem"));
+// console.log(sayHello("Sam")); // "Hello Sam"
+
+
+
+//     const messages = {
+//         received: "Restaurant started working on your order.",
+//         prepared: "Driver is picking up your food.",
+//         en_route: "Driver is cycling your way!",
+//         arrived: "Enjoy your food!"
+//     };
+// console.log(messages.received);
+
+// const someobj = {id:1,name:"prem",gender:"M"};
+// console.log(someobj)
+// const somekeys = Object.keys(someobj)
+// console.log(somekeys)
+// somekeys.forEach(function(soem){
+//     console.log(someobj[soem])
+// })
+// somekeys.forEach(key =>{
+//     console.log(someobj[key])
+// })
+// //with object and array
+// const someobj = [{id:1,name:"prem",gender:"M"},{id:2,name:"sagar",gender:"M"},{id:3,name:"kumari",gender:"f"}];
+// console.log(someobj)
+// const somekeys = Object.keys(someobj)    //object.keys
+// console.log(somekeys)
+// somekeys.forEach(key =>{
+//     console.log(someobj[key])
+// })
+// const something = someobj.map(obj=>{
+//     return obj.name
+// })
+// console.log(something)//[ 'prem', 'sagar', 'kumari' ]
+// const objfill = someobj.filter(x=>{
+//     return x.gender==="f";         //filter
+// })
+// console.log(objfill);//[ { id: 3, name: 'kumari', gender: 'f' } ]
+// const objfind = someobj.find(x=>{
+//     return x.id===2;
+// })
+// console.log(objfind);//{ id: 2, name: 'sagar', gender: 'M' }
+// console.log(someobj.some(x=>x.gender==="M"));//true
+// console.log(someobj.every(x=>x.gender==="M"));//flase
+// const somename = someobj.map(obj=>{
+//    if(obj.gender==="M"){
+//     return obj.name;
+// }
+// }).join("")
+// console.log(somename)
+
+// const val = {user:1,name:"prem"}
+// const chg = {...val,user:val.user+1}
+// console.log(chg);
+
+// class Person {
+//     constructor(firstName, lastName) {
+//         console.log(firstName + " " + lastName);
+//     }
+// }
+// const person = new Person("Sam", "Green");//Sam Green
+
+// class randamgay {
+//     constructor(firstName,lastName,age,prifix){
+//             this.prifix=prifix;
+//             this.firstName = firstName;
+//             this.lastName = lastName;
+//             this.age=age;
+//     }
+//     namegay() {
+//         return `${this.firstName} ${this.lastName}`;
+//     }
+
+//     // pname(){
+//     //     return `${this.prifix}.${this.firstName} ${this.lastName} ${this.age}`
+//     // }
+// }
+// const person = new randamgay("vidya", "sagar");
+// console.log(person.namegay()); // vidyasagar
+// console.log(new randamgay("prem","sagar",18,"Mrs"));
+// console.log(new randamgay("sagar","ips",22,"mis"));
+// console.log(new randamgay("self","fish",18,"Mrs"));
+/*vidya sagar
+randamgay {
+  prifix: 'Mrs',
+  firstName: 'prem',
+  lastName: 'sagar',
+  age: 18
+}
+randamgay {
+  prifix: 'mis',
+  firstName: 'sagar',
+  lastName: 'ips',
+  age: 22
+}
+randamgay {
+  prifix: 'Mrs',
+  firstName: 'prem',
+  lastName: 'sagar',
+  age: 18
+}*/
+
+// class User {
+//     set age(value) {
+//         console.log("age setter");
+//         this._age = Number.parseInt(value, 10);
+//     }
+// }                                           //setter
+// console.log(new User())//User {}
+// const user = new User();
+// user.age = "18";
+// console.log(user)
+
+// class User {
+//     get age() {
+//         console.log("age getter");
+//         return this._age;
+//     }
+
+//     set age(value) {
+//         console.log("age setter");             //getter
+//         this._age = Number.parseInt(value, 10);
+//     }
+// }
+// const user = new User();
+// user.age = "20"; // calls set age(value)
+// console.log(user.age); // calls get age(), returns 20 (number)
+
+// class User {
+//     constructor(age) {
+//         this.age = age; // calls set age(value)
+//     }
+//     get age() {
+//         console.log("age getter");
+//         return this._age;
+//     }
+//     set age(value) {
+//         console.log("age setter");
+//         this._age = Number.parseInt(value, 10);
+//     }
+// }
+// const user = new User("30");
+// console.log(user.age); // 30 (number)
+// user.age = "31";
+// console.log(user.age); // 31 (number)
+
+// class Employee {
+//     constructor(firstName, lastName) {
+//         this.firstName = firstName;
+//         this.lastName = lastName;
+//     }
+//     getFullName() {
+//         return `${this.firstName} ${this.lastName}`;
+//     }
+//     getInitials() {
+//         return this.firstName[0] + this.lastName[0];
+//     }
+// }
+// class Manager {
+//     constructor(firstName, lastName) {
+//         this.firstName = firstName;
+//         this.lastName = lastName;
+//     }
+//     getFullName() {
+//         return `${this.firstName} ${this.lastName}`;
+//     }
+//     getInitials() {
+//         return this.firstName[0] + this.lastName[0];
+//     }
+//     sendPerformanceReview() {
+//         console.log(`Sent performance review for current quarter`);
+//     }   
+// }
+// console.log(new Employee("prem","sagar"));
+// console.log(new Manager("sin","lies"));
+
+// class Employee {
+//     constructor(firstName, lastName) {
+//         this.firstName = firstName;
+//         this.lastName = lastName;
+//     }
+
+//     getFullName() {
+//         return `${this.firstName} ${this.lastName}`;
+//     }
+
+//     getInitials() {
+//         return this.firstName[0] + this.lastName[0];
+//     }
+// }
+
+// class Manager extends Employee {
+//     sendPerformanceReview() {
+//         console.log(`Sent performance review for current quarter`);
+//     }   
+// }
+// const manager = new Manager("Sam", "Green");
+// console.log(manager.sendPerformanceReview()); // logs "Sent performance review for current quarter"
+// console.log(manager.getFullName()); // "Sam Green"
+// console.log(manager.getInitials()); // "SG"
+
+// class Forms{
+//     submit(){
+//         console.log(this.name + " submited");
+//     }
+//     cancled(){
+//         console.log(this.name + " Form cancled")
+//     }
+//     Name(name){
+//         this.name = name;
+//     }
+// }
+// const prem = new Forms()
+// prem.Name("Prem")
+// const sagar = new Forms()
+// sagar.Name("Sagar")
+// console.log(prem.submit());
+// console.log(sagar.cancled());
+// console.log(prem.cancled());
+
+class Forms{
+    constructor(name,number){
+        console.log("hola")
+            this.name = name;
+            this.TrainNumber = number;       
+        }
+    submit(){
+        console.log(this.name + " submited "+this.TrainNumber);
+    }
+    cancled(){
+        console.log(this.name + " Form cancled " + this.TrainNumber)
+    }
+}
+let Prem = new Forms("prem",121212);
+let sagar = new Forms("Sagar",1437)
+console.log(Prem.submit());
+console.log(sagar.cancled())
+ 

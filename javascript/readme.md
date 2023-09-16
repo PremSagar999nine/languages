@@ -40,6 +40,31 @@ The remainder operator (%) returns the division remainder between 2 numbers</li>
 <li>The Array .every(callback) method returns true when every item in the array satisfies the condition provided in the callback.</li>
 <li>.some(callback) method returns true when at least one item in the array satisfies the condition provided in the callback.</li>
 <li>The reduce() method is used to calculate a single value from an array.</li>
+<li>Arrays of objects are the most common data type that you will encounter when working in web development, that's because most APIs (for example, a weather API, Twitter API, etc.) return arrays of objects.</li>
+<li>A very important tip when working with arrays of objects, especially when iterating over an array of objects, is to add console.log() throughout your code to visualize the object that you receive in the callback.</li>
+<li>Optional chaining allows you to access a property deep within an object without risking an error if one of the properties is null or undefined.</li>
+<li>In case one of the properties is null or undefined, then the ?. will short-circuit to undefined.</li>
+<li>You cannot use optional chaining on an object that may not exist. The object has to exist. Optional chaining is only used to access a property that may or may not exist.</li>
+<li>Optional chaining can be used for arrays and  functions was ?.[index] and functionName?.()</li>
+<li>The nullish coalescing ?? operator is a new operator introduced in JavaScript that allows you to default to a certain value when the left-hand side is a nullish value.A nullish value is a value that is either null or undefined.The nullish coalescing operator will short-circuit if the left-hand side returns a non-nullish value. This means that it will not execute the right-hand side.
+You can only use nullish coalescing when the variable is defined.</li>
+<li>Nullish coalescing can be used with optional chaining.The main usage here is to safely access a property that could be nullish while also being able to default to a certain value.</li>
+<li>undefined vs null: undefined means that the property has not been defined yet. Whereas, null means that the property has been defined but is empty.</li>
+<li>Implicit conversion happens when JavaScript expects a boolean value but is given a non-boolean value.
+Implicit conversion means that JavaScript will automatically convert the value to boolean.<br>
+Falsy values are converted to false. Everything else is converted to true.<br>
+Most common falsy values are: false, null, undefined, 0, "", NaN.<br>
+The logical NOT operator ! converts a boolean value to its opposite.</li>
+<li>Arrays of objects can be reduced into a single value (most commonly a number).The main difference is that current becomes an object. So make sure to log it to the console to visualize it.The 2nd argument of the reduce is the starting value for the total parameter.The starting value for a sum is 0.The starting value for a product (multiplication) is 1.</li>
+<ul>You can create a shallow copy of an array using the spread syntax ...: [...originalArray].
+<li>This works by spreading the items into a new array.
+<li>You can immutably add an item to an array like this: [...originalArray, newItem]
+<li>You can create a copy of an object using the ... operator: {...originalObject}
+<li>You can update an existing property: {...originalObject, property: 'newValue'}</ul>
+<li>setTimeout(callback, milliseconds) is a JavaScript function that queues the callback into the future (depending on the milliseconds you specify).</li>
+<li></li>
+<li></li>
+<li></li>
 <li></li>
 <li></li>
 <li></li>
